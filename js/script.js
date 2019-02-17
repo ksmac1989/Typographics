@@ -13,13 +13,24 @@ $('#search').keyup(function(){
                 output += '<li>';
                 output += '<h2>' + val.name + '</h2>';
                 output += '<h3>' + val.company + '</h3>';
-                output += '<img src = "images/'+val.shortname+'.jpg" alt=" '+val.name+' " />';
-                output += '<p>' + val.bio + '</p>';
+                output += '<div class="slide"><img src = "images/'+val.shortname+'.jpg" alt=" '+val.name+' " />';
+                output += '<p>' + val.bio + '</p></div>';
                 output += '</li>';
             }
-
+            
         });
         output += '</ul>';
         $('#update').html(output);
+
+        
+        $('ul').click(function() {
+            if ( $( ".slide" ).is( ":hidden" ) ) {
+              $( ".slide" ).show( "slow" );
+            } else {
+              $( ".slide" ).slideUp();
+            }
+        });
+        
+
     });
 })
